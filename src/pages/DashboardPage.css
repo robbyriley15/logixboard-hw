@@ -1,0 +1,85 @@
+.shipping-mode-container {
+    background-color: #f2eded;
+    width: 500px;
+    height: 400px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.shipping-mode-border {
+    background-color: white;
+    width: 520px;
+    height: 410px;
+    border-radius: 12px;
+}
+
+.summary-container {
+    /* width: 300px; */
+    flex-grow: 1;
+    height: 410px;
+    background: white;
+    border-radius: 12px;
+}
+
+.tile-container {
+    display: inline-block;
+    margin: 10px;
+    border-radius: 12px;
+    background: white;
+}
+
+.content-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.message-container {
+    width: 100%;
+    height: 100px;
+    padding: 15px;  
+}
+
+.user-welcome {
+    font-weight: bold;
+    font-size: 28px;
+    text-align: center;
+}
+
+.customer-container {
+    height: 350px;
+    margin-top: 10px;
+}
+
+.customer-list-title {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.customer-tile-container {
+    flex-grow: 1;
+}
+
+.destination-container {
+    margin-top: 10px;
+    height: 350px;
+}
+
+.destination-tile-container {
+    height: 410px;
+    flex-grow: 1;
+}
+
+.arrival-chart-container {
+    width: 100%;
+    margin-left: 10%;
+}
+
+.arrival-chart-border {
+    background-color: white;
+    flex-grow: 44;
+    height: 410px;
+    border-radius: 12px;
+}

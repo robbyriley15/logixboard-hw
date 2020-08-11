@@ -1,0 +1,55 @@
+.summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+}
+
+.summary-row {
+    margin-left: 12%;
+    margin-right: 12%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.summary-label {
+    padding: 5px;
+    font-weight: bold;
+}
+
+.total-row {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+.count-circle {
+    border-radius: 18px;
+    color: white;
+    padding: 5px;
+}
+
+.arrived-count {
+    background-color: green;
+}
+
+.transporterror-count {
+    background-color: red;
+}
+
+.intransit-count {
+    background-color: grey;
+}
+
+.roll-over-count {
+    background-color: blue;
+}
+
+.cancelled-count {
+    background-color: darkorange;
+}
+
+.customs-hold-count {
+    background-color: black;
+}

@@ -1,0 +1,34 @@
+.ordered-label {
+    padding: 5px;
+}
+
+.ordered-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.orderedlist-item-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ordered-count {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 5px;
+    text-align: center;
+}
+
+.warning-medium {
+    background-color: darkorange;
+    color: white;
+    border-radius: 14px;
+}
+
+.warning-high {
+    background-color: red;
+    color: white;
+    border-radius: 14px;
+}
