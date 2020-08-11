@@ -1,7 +1,7 @@
 import React from 'react';
 import { MultipleSelectDropdown } from './MultiSelectDropdown'
 import { Shipment } from '../ShipmentData';
-import { getUniqueCustomers, getUniqueModes, getUniqueStatus, getUniqueDestinations } from '../helpers/ShipmentHelper';
+import { getUniqueClients, getUniqueModes, getUniqueStatus, getUniqueDestinations } from '../helpers/ShipmentHelper';
 import { ShipmentDataTable } from './ShipmentDataTable';
 import './ShipmentDataTableFilters.css';
 
@@ -48,7 +48,7 @@ export class ShipmentDataTableFilters extends React.Component<{shipmentData: Shi
                 <div className="filters-label">Filters:</div>
                 <MultipleSelectDropdown 
                     label='Client' 
-                    values={getUniqueCustomers(this.props.shipmentData)} 
+                    values={getUniqueClients(this.props.shipmentData)} 
                     onChange={(values) => this.onFilterChange(values, 'Client Name')} />
                 <MultipleSelectDropdown 
                     label='Mode' 

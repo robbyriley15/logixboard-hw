@@ -1,3 +1,9 @@
+`npm i` if running for the first time, requires node installed on machine
+
+`npm run start` to start the project, will open automatically in your browser
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

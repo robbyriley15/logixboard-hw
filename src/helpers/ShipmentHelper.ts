@@ -1,20 +1,20 @@
 import { Shipment } from "../ShipmentData";
 import { Aggregator } from "./Types";
 
-let uniqueCustomers: string[] | null = null;
+let uniqueClients: string[] | null = null;
 let uniqueModes: string[] | null = null;
 let uniqueStatus: string[] | null = null;
 let uniqueDestinations: string[] | null = null;
 let countsByStatus: Aggregator[] | null = null;
-let countsByCustomer: Aggregator[] | null = null;
+let countsByClient: Aggregator[] | null = null;
 let countsByDestination: Aggregator[] | null = null;
 
-export function getUniqueCustomers(shipmentData: Shipment[]): string[] {
-    if (uniqueCustomers === null) {
-        uniqueCustomers = getUniqueValues(shipmentData, 'Client Name');
+export function getUniqueClients(shipmentData: Shipment[]): string[] {
+    if (uniqueClients === null) {
+        uniqueClients = getUniqueValues(shipmentData, 'Client Name');
     }
 
-    return uniqueCustomers;
+    return uniqueClients;
 }
 
 export function getUniqueModes(shipmentData: Shipment[]): string[] {
@@ -62,30 +62,31 @@ export function getCountByStatus(shipmentData: Shipment[]): Aggregator[] {
     return countsByStatus;
 }
 
-export function getCountByCustomer(shipmentData: Shipment[]): Aggregator[] {
-    if (countsByCustomer === null) {
-        const countsByCustomerMap: { [key: string]: any } = {};
+export function getCountByClient(shipmentData: Shipment[]): Aggregator[] {
+    if (countsByClient === null) {
+        const countsByClientMap: { [key: string]: any } = {};
 
         shipmentData.map((shipment: Shipment) => {
-            if (!countsByCustomerMap.hasOwnProperty(shipment['Client Name'])) {
-                countsByCustomerMap[shipment['Client Name']] = [];
+            if (!countsByClientMap.hasOwnProperty(shipment['Client Name'])) {
+                countsByClientMap[shipment['Client Name']] = [];
             }
     
-            countsByCustomerMap[shipment['Client Name']].push(shipment);
+            countsByClientMap[shipment['Client Name']].push(shipment);
         });
     
-        countsByCustomer = Object.keys(countsByCustomerMap).map((key: string) => {
+        countsByClient = Object.keys(countsByClientMap).map((key: string) => {
             return { 
                 label: key, 
-                count: countsByCustomerMap[key].length, 
-                id: key, 
+                count: countsByClientMap[key].length, 
+                id: key,
+                link: '/client/' + key,
                 warningLevel: getCustomerWarningLevel(shipmentData, key, 'Client Name') 
             };
         })
     
     }
     
-    return countsByCustomer;
+    return countsByClient;
 }
 
 export function getCountByDestination(shipmentData: Shipment[]): Aggregator[] {
@@ -112,6 +113,15 @@ export function getCountByDestination(shipmentData: Shipment[]): Aggregator[] {
     }
     
     return countsByDestination;
+}
+
+export function filterByClient(shipmentData: Shipment[], client: string): Shipment[] {
+    if (!client) {
+        return [];
+    }
+
+    return shipmentData.filter(
+        (shipment: Shipment) => shipment["Client Name"].trim().toLowerCase() === client.trim().toLowerCase())
 }
 
 function getCustomerWarningLevel(shipmentData: Shipment[], value: string, propertyName: string): number {

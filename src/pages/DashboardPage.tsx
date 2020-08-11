@@ -3,7 +3,7 @@ import { PieChart } from '../components/PieChart';
 import { shipmentData, Shipment } from '../ShipmentData';
 import './DashboardPage.css';
 import { Summary } from '../components/Summary';
-import { getCountByStatus, getCountByCustomer, getCountByDestination } from '../helpers/ShipmentHelper';
+import { getCountByStatus, getCountByClient, getCountByDestination } from '../helpers/ShipmentHelper';
 import { OrderedList } from '../components/OrderedList';
 import { BarChart } from '../components/BarChart';
 
@@ -68,8 +68,8 @@ export class DashboardPage extends React.Component {
                 </div>
                 <div className="customer-tile-container tile-container">
                     <div className="customer-container">
-                        <div className="customer-list-title"><span>Customer</span><span>Shipments</span></div>
-                        <OrderedList data={getCountByCustomer(shipmentData)} />
+                        <div className="customer-list-title"><span>Client</span><span>Shipments</span></div>
+                        <OrderedList data={getCountByClient(shipmentData)} />
                     </div>
                 </div>
             </div>

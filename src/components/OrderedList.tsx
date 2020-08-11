@@ -1,5 +1,6 @@
 import React from 'react';
 import './OrderedList.css';
+import { Link } from 'react-router-dom';
 
 export type OrderedListData = {
     label: string,
@@ -40,7 +41,13 @@ export class OrderedList extends React.Component<{data: OrderedListData[]}> {
                 return <li>
                         <div className="orderedlist-item-container">
                             <span title={this.getWarningLevelTooltip(listData.warningLevel)}
-                                className={"ordered-label " + this.getWarningLevelClass(listData.warningLevel)}>{listData.label}</span>
+                                className={"ordered-label " + this.getWarningLevelClass(listData.warningLevel)}>
+                                    {
+                                        listData.link ?
+                                        <Link to={listData.link}>{listData.label}</Link>
+                                        : <React.Fragment>{listData.label}</React.Fragment>
+                                    }
+                            </span>
                             <span className="ordered-count">
                                 {listData.count}
                             </span>

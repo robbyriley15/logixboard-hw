@@ -11,6 +11,7 @@ import {
   Link
 } from 'react-router-dom';
 import { Header } from './components/Header';
+import { ClientPage } from './pages/ClientPage';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/all">
             <FilterPage />
           </Route>
+          <Route path="/client/:clientName" children={<ClientPage />} />
         </Switch>
       </Router>
     </div>
