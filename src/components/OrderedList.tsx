@@ -1,6 +1,7 @@
 import React from 'react';
 import './OrderedList.css';
 import { Link } from 'react-router-dom';
+import { mediumWarningLevelPercent, highWarningLevelPercent } from '../helpers/ShipmentHelper';
 
 export type OrderedListData = {
     label: string,
@@ -23,9 +24,9 @@ export class OrderedList extends React.Component<{data: OrderedListData[]}> {
 
     getWarningLevelTooltip(warningLevel: number | undefined): string {
         if (warningLevel === 1) {
-            return '25 percent of these shipments have a Transport Error or have been Cancelled.';
+            return `${mediumWarningLevelPercent} percent of these shipments have a Transport Error or have been Cancelled.`;
         } else if (warningLevel === 2) {
-            return '40 percent of these shipments have a Transport Error or have been Cancelled.';
+            return `${highWarningLevelPercent} percent of these shipments have a Transport Error or have been Cancelled.`;
         }
 
         return '';
@@ -38,7 +39,7 @@ export class OrderedList extends React.Component<{data: OrderedListData[]}> {
         return <ol className="ordered-container">
             {
                 dataCopy.map((listData: OrderedListData) => {
-                return <li>
+                return <li key={listData.label}>
                         <div className="orderedlist-item-container">
                             <span title={this.getWarningLevelTooltip(listData.warningLevel)}
                                 className={"ordered-label " + this.getWarningLevelClass(listData.warningLevel)}>

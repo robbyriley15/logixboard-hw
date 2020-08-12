@@ -37,10 +37,10 @@ const MenuProps = {
   },
 };
 
-function getStyles(name: string, personName: string[], theme: Theme) {
+function getStyles(value: string, selectedValues: string[], theme: Theme) {
   return {
     fontWeight:
-      personName.indexOf(name) === -1
+      selectedValues.indexOf(value) === -1
         ? theme.typography.fontWeightRegular
         : theme.typography.fontWeightMedium,
   };
@@ -58,10 +58,10 @@ export function MultipleSelectDropdown(props: {values: string[], label: string, 
 
   return (
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-mutiple-name-label">{props.label}</InputLabel>
+        <InputLabel id="multi-select-label">{props.label}</InputLabel>
         <Select
-          labelId="demo-mutiple-name-label"
-          id="demo-mutiple-name"
+          labelId="multi-select-label"
+          id="mutiple-select"
           multiple
           value={selectedValues}
           onChange={handleChange}

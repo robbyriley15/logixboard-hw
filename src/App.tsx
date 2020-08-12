@@ -1,14 +1,11 @@
 import React from 'react';
-import { shipmentData } from './ShipmentData';
 import './App.css';
 import { FilterPage } from './pages/FilterPage';
-import { PieChart } from './components/PieChart';
 import { DashboardPage } from './pages/DashboardPage';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from 'react-router-dom';
 import { Header } from './components/Header';
 import { ClientPage } from './pages/ClientPage';

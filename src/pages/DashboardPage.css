@@ -76,6 +76,7 @@
 .arrival-chart-container {
     width: 100%;
     margin-left: 10%;
+    padding-top: 10px;
 }
 
 .arrival-chart-border {

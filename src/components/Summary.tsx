@@ -10,6 +10,7 @@ export class Summary extends React.Component<{ countByStatus: Aggregator[], tota
             case 'arrived':
                 return 'arrived-count';
             case 'transporterror':
+                aggregator.label = 'Transport Error';
                 return 'transporterror-count';
             case 'in transit':
                 return 'intransit-count';
@@ -32,7 +33,7 @@ export class Summary extends React.Component<{ countByStatus: Aggregator[], tota
             </div>
             {
                 this.props.countByStatus.map((aggregator: Aggregator) => {
-                    return <div className="summary-row">
+                    return <div key={aggregator.label} className="summary-row">
                         <span className={this.getCountClassForStatus(aggregator) + ' count-circle'}>{aggregator.count}</span>
                         <span className="summary-label">{aggregator.label}</span>
                     </div>

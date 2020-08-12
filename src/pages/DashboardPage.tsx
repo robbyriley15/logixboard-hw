@@ -76,7 +76,11 @@ export class DashboardPage extends React.Component {
             <div className="content-row">
                 <div className="arrival-chart-border tile-container">
                     <div className="arrival-chart-container">
-                        <BarChart data={this.getArrivalDateBarChartData()} title='Estimated Arrivals'/>
+                        <BarChart 
+                            data={this.getArrivalDateBarChartData()} 
+                            title='Estimated Arrivals' 
+                            yTitle='Shipments'
+                            xTitle='Estimated Arrival Date'/>
                     </div>
                 </div>
                 <div className="destination-tile-container tile-container">

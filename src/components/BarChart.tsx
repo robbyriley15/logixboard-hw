@@ -4,7 +4,7 @@ import { CanvasPoint } from '../helpers/Types';
 
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-export class BarChart extends React.Component<{data: CanvasPoint[], title: string}> {
+export class BarChart extends React.Component<{data: CanvasPoint[], title: string, xTitle: string, yTitle: string}> {
 
     render() {
         const options = {
@@ -12,10 +12,10 @@ export class BarChart extends React.Component<{data: CanvasPoint[], title: strin
 				text: this.props.title
             },
             axisY:{
-                title: "Shipments",
+                title: this.props.yTitle,
             },
             axisX:{
-                title: "Estimated Arrival Date",
+                title: this.props.xTitle,
             },
             width: 700,
 			data: [
@@ -27,9 +27,7 @@ export class BarChart extends React.Component<{data: CanvasPoint[], title: strin
         }
         
 		return (
-		<div>
 			<CanvasJSChart options = {options}/>
-		</div>
 		);
 	}
 }

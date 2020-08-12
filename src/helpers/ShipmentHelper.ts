@@ -1,6 +1,9 @@
 import { Shipment } from "../ShipmentData";
 import { Aggregator } from "./Types";
 
+export const mediumWarningLevelPercent = 25;
+export const highWarningLevelPercent = 40;
+
 let uniqueClients: string[] | null = null;
 let uniqueModes: string[] | null = null;
 let uniqueStatus: string[] | null = null;
@@ -45,7 +48,7 @@ export function getCountByStatus(shipmentData: Shipment[]): Aggregator[] {
     if (countsByStatus === null) {
         const countsByStatusMap: { [key: string]: number } = {};
 
-        shipmentData.map((shipment: Shipment) => {
+        shipmentData.forEach((shipment: Shipment) => {
             if (!countsByStatusMap.hasOwnProperty(shipment.Status)) {
                 countsByStatusMap[shipment.Status] = 0;
             }
@@ -66,7 +69,7 @@ export function getCountByClient(shipmentData: Shipment[]): Aggregator[] {
     if (countsByClient === null) {
         const countsByClientMap: { [key: string]: any } = {};
 
-        shipmentData.map((shipment: Shipment) => {
+        shipmentData.forEach((shipment: Shipment) => {
             if (!countsByClientMap.hasOwnProperty(shipment['Client Name'])) {
                 countsByClientMap[shipment['Client Name']] = [];
             }
@@ -93,7 +96,7 @@ export function getCountByDestination(shipmentData: Shipment[]): Aggregator[] {
     if (countsByDestination === null) {
         const countsByDestionationMap: { [key: string]: any } = {};
 
-        shipmentData.map((shipment: Shipment) => {
+        shipmentData.forEach((shipment: Shipment) => {
             if (!countsByDestionationMap.hasOwnProperty(shipment.Destination)) {
                 countsByDestionationMap[shipment.Destination] = [];
             }
@@ -138,11 +141,11 @@ function getCustomerWarningLevel(shipmentData: Shipment[], value: string, proper
 
     const warningPercent = totalWarningStatus / clientData.length;
 
-    if (warningPercent > .25) {
+    if (warningPercent > mediumWarningLevelPercent / 100) {
         warningLevel = 1;
     }
 
-    if (warningPercent > .4) {
+    if (warningPercent > highWarningLevelPercent / 100) {
         warningLevel = 2;
     }
 
